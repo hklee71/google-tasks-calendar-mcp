@@ -1,0 +1,31 @@
+{
+  "name": "google-task-calendar",
+  "version": "1.0.0",
+  "description": "A Model Context Protocol server for Google Tasks and Calendar with Production OAuth2 authentication (permanent tokens)",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "google-task-calendar": "./build/index.js"
+  },
+  "files": [
+    "build"
+  ],
+  "scripts": {
+    "build": "tsc && node -e \"require('fs').chmodSync('build/index.js', '755')\"",
+    "prepare": "npm run build",
+    "watch": "tsc --watch",
+    "inspector": "npx @modelcontextprotocol/inspector build/index.js",
+    "test-calendar": "node check-shared-calendars.js",
+    "generate-token": "node get-refresh-token-localhost-standard.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "0.6.0",
+    "axios": "^1.9.0",
+    "googleapis": "^149.0.0",
+    "dotenv": "^16.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.24",
+    "typescript": "^5.3.3"
+  }
+}
